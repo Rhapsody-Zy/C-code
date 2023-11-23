@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+//枚举常量
+//枚举 -- 一一列举
+//枚举关键字 -- enum
+enum Sex
+{
+    MALE,
+    FEMALE,
+    SECRET
+};
+
+int main()
+{
+    //enum Sex s = FEMALE;
+    printf("%d\n",MALE);    //0
+    printf("%d\n",FEMALE);  //1
+    printf("%d\n",SECRET);  //2
+    
+    //被enum修饰后的量变为常量，他们具有固定的值，不可被改变
+    return 0;
+}
