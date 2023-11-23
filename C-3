@@ -1,0 +1,31 @@
+常量
+//常量
+
+#include <stdio.h>
+
+int main()
+{
+    3; //字面常量
+
+    //const -- 常属性
+    //const修饰的常变量，修饰后的变量将具有常属性，但仍未变量
+    const int num = 4;
+    printf("%d\n", num);
+    //num = 8;
+    printf("%d\n", num);
+    
+    return 0;
+}
+
+define  定义的标识符常量
+#include <stdio.h>
+
+//define 定义的标识符常量
+#define MAX 10
+
+int main()
+{
+    int arr[MAX] = {0};
+    printf("%d\n",MAX);
+    return 0;
+}
