@@ -1,0 +1,22 @@
+//变量
+
+#include <stdio.h>
+int num2 = 20;  // 全局变量---适用于整个工程，当引用外部符号时，可使用extern进行声明
+int main()
+{
+    //int age = 21;
+    //float weight = 83.6;
+    //char w = 'ZY';
+    //int num1 = 10;  //局部变量
+
+    //输入函数 - scanf()
+    int num1 = 0;
+    int num2 = 0;
+    int sum = 0;
+    scanf("%d%d",&num1,&num2);   //& - 取缔值符号
+    
+    sum = num1 + num2;
+    printf("sum = %d\n", sum);
+    return 0;
+
+}
