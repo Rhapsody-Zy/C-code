@@ -33,7 +33,7 @@ int main()
     int sz = sizeof(arr)/sizeof(arr[0]);
                             //此时下面这个arr为数组arr首元素的地址
     int ret = binary_search(arr, k, sz);
-    if (ret = -1)
+    if (ret == -1)
         printf("没找到");
     else
         printf("找到了，下标为:%d\n",ret);
