@@ -13,7 +13,10 @@ void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
     }
 }
 
+
+
 void DisPlayBoard(char mine[ROWS][COLS], int row, int col)
 {
     
 }
+
