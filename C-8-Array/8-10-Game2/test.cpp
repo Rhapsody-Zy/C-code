@@ -20,8 +20,14 @@ void game()
     InitBoard(show, ROWS, COLS, '*');
 
     //打印两数组
-    DisPlayBoard(mine, ROW, COL);
+    //DisPlayBoard(mine, ROW, COL);
+    //设置雷
+    SetMine(mine, ROW, COL);
+    //DisPlayBoard(mine, ROW, COL);
     DisPlayBoard(show, ROW, COL);
+    //排查雷
+    FindMine(mine, show, ROW, COL);
+
 }
 
 
@@ -29,7 +35,7 @@ void game()
 void test()
 {
     int input = 0;
-    
+    srand((unsigned int)time(NULL));
     do
     {
         menu();
