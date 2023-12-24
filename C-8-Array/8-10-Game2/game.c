@@ -62,11 +62,62 @@ int get_mine_count(char board[ROWS][COLS], int x, int y)
             board[x - 1][y + 1] - 8 * '0');
 }
 
+//扩散周围都是0的空格
+void Diffuse(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int *pw)
+{
+    int win = 0;
+    int count = get_mine_count(mine, x, y);
+    if (count == 0)
+    {
+        (*pw)++;
+        show[x][y] = '0';
+        if (show[x-1][y+1] = '*')
+        {
+            Diffuse(mine, show, x-1, y+1, pw);
+        }
+        if (show[x][y+1] = '*')
+        {
+            Diffuse(mine, show, x, y+1, pw);
+        }
+        if (show[x+1][y+1] = '*')
+        {
+            Diffuse(mine, show, x+1, y+1, pw);
+        }
+        if (show[x-1][y] = '*')
+        {
+            Diffuse(mine, show, x-1, y, pw);
+        }
+        if (show[x+1][y] = '*')
+        {
+            Diffuse(mine, show, x+1, y, pw);
+        }
+        if (show[x-1][y-1] = '*')
+        {
+            Diffuse(mine, show, x-1, y-1, pw);
+        }
+        if (show[x][y-1] = '*')
+        {
+            Diffuse(mine, show, x, y-1, pw);
+        }
+        if (show[x+1][y-1] = '*')
+        {
+            Diffuse(mine, show, x+1, y-1, pw);
+        }
+    }
+    else if (count > 0)
+    {
+        (*pw++);
+        show[x][y] = count + '0';
+        return win;
+    }
+}
+
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
     int x = 0;
     int y = 0;
     int win = 0;
+    int* pw = &win;
     while (win < row * col - Easy_Count)
     {
         printf("请输入要排查的坐标:>");
@@ -93,6 +144,10 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
                     // 统计mine数组中x,y坐标周围有几个雷
                     int count = get_mine_count(mine, x, y);
                     show[x][y] = count + '0'; //转换成数字字符
+                    if (count == 0)
+                    {
+                        Diffuse(mine, show, x, y, pw);
+                    }
                     DisPlayBoard(show, ROW, COL);
                 }
             }
